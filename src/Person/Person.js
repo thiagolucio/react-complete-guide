@@ -4,9 +4,16 @@ import './Person.css';
 const person = (props) => {
     return(
         <div className="Person">
-            <p onClick={props.click}>I'm <b>{props.name}</b> and I have <b>{props.age}</b> years old.</p>  
+            <p>I'm <b>{props.name}</b> and I have <b>{props.age}</b> years old.</p>  
             <p>{props.children}</p>
-            <input type="text" onChange={props.changed} value={props.name} />
+            <div className={"input-group mb-3"}>
+                <input type="text" className={"form-control"} onChange={props.changed} value={props.name} />
+                <div className={"input-group-append"}>
+                <button className={"btn btn-danger"} type="button" id="button-addon2" onClick={props.click}>
+                     <i className={"fas fa-trash-alt"}></i>
+                </button>
+                </div>
+            </div>     
         </div>
     ) 
 };

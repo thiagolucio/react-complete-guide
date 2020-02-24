@@ -4,7 +4,8 @@ body {
   font-family: sans-serif;
 }
 
-fieldset {
-  border: 1px solid #333;
+fieldset { 
   margin: 16px;
+  border: 1px solid #DDD;
+  background: #CDCDCD;
 }
