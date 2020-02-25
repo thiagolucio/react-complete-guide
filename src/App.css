@@ -6,3 +6,6 @@
   color: blue;
   text-decoration: underline;
 }
+
+.red { color: red;}
+.bold {font-weight: bold!important;}

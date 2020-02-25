@@ -24,12 +24,11 @@ class App extends Component {
 
     person.name = event.target.value;
     const persons = [...this.state.persons];
-    
+
     persons[personIndex] = person;
     this.setState( {persons: persons} );
 
   }
-
 
   deletePersonHandler = (personIndex) => {
     const persons = [...this.state.persons]; //criou constante criando um novo array persons com spread operator (...)
@@ -37,13 +36,10 @@ class App extends Component {
     this.setState({persons: persons}); // recriou o array com as alteracoes feitas
   }
 
-
   togglePersonsHandler = (btnMsg) => {
     const doesShow = this.state.showPersons; //showPersons: false (linha 13)
     this.setState({showPersons: !doesShow}); //showPersons = true / doesShow = false    
   }
-
-
 
   render () {
 
@@ -53,7 +49,7 @@ class App extends Component {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
-            return <Person  
+            return <Person             
               click={() => this.deletePersonHandler(index)}          
               name={person.name}
               age={person.name} 
@@ -67,6 +63,18 @@ class App extends Component {
     }
 
 
+    // let classRedBold = ['red', 'bold'].join(' ');
+    const classRedBold = [];
+
+    if(this.state.persons.length <= 2) {
+      classRedBold.push('red');      
+    }
+
+    if(this.state.persons.length <= 1) {
+      classRedBold.push('bold');
+    }
+
+
     return (
       <div className="App">
         <div className="row">
@@ -74,7 +82,7 @@ class App extends Component {
             <div className="jumbotron">
             <div className="col-12">
               <h1>Hi, I'm a React App</h1>
-              <p>This is really working!</p>
+              <p className={classRedBold.join(' ')}>This is really working!</p>
               <button className={"btn btn-primary"} onClick={this.togglePersonsHandler}>
                 {this.state.showPersons === true ? "Show Persons" : "Hide Persons"}
               </button>
