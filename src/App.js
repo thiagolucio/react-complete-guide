@@ -44,6 +44,7 @@ class App extends Component {
   render () {
 
     let persons = null;
+    let fontClass = '';
 
     if ( this.state.showPersons ) {
       persons = (
@@ -60,8 +61,8 @@ class App extends Component {
         }             
         </div>
       );
+      fontClass = classes.fontClass;
     }
-
 
     // let classRedBold = ['red', 'bold'].join(' ');
     const assignedClasses = [];
@@ -78,12 +79,12 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <div className={"row"}>
-          <div className={"container"}>
+          <div className={"container mt-5"}>
             <div className={"jumbotron"}>
             <div className={"col-12"}>
-              <h1>Hi, I'm a React App</h1>
+              <h1 className={fontClass}>Hi, I'm a React App</h1>
               <p className={assignedClasses.join(' ')}>This is really working!</p>
-              <button className={"btn btn-primary"} onClick={this.togglePersonsHandler}>
+              <button className={"btn btn-primary"}  onClick={this.togglePersonsHandler}>
                 {this.state.showPersons === true ? "Show Persons" : "Hide Persons"}
               </button>
             </div>
