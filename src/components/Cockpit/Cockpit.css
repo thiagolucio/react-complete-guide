@@ -1,0 +1,13 @@
+.App h1.fontClass {
+    color: darkorchid;  
+  }
+  
+  .App h1.fontClass:hover {
+    color: blue;
+    font-weight: bold;
+    text-decoration: overline;
+  }
+
+
+.red { color: red;}
+.bold {font-weight: bold!important;}
