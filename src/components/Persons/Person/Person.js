@@ -1,24 +1,24 @@
-import React from 'react';
+import React, {Component}  from 'react';
 import classes from './Person.css';
 
-const person = (props) => {
-    
-    console.log('[Person.js] rendering...');
-
-    return(
-        <div className={classes.Person}>
-            <p>I'm <b>{props.name}</b> and I have <b>{props.age}</b> years old.</p>  
-            <p>{props.children}</p>
-            <div className={"input-group mb-3"}>
-                <input type="text" className={"form-control"} onChange={props.changed} value={props.name} />
-                <div className={"input-group-append"}>
-                <button className={"btn btn-danger"} type="button" id="button-addon2" onClick={props.click}>
-                     <i className={"fas fa-trash-alt"}></i>
-                </button>
+class Person extends Component {
+    render() {
+        console.log('[Person.js] rendering...');
+        return(
+            <div className={classes.Person}>
+                <p>I'm <b>{this.props.name}</b> and I have <b>{this.props.age}</b> years old.</p>
+                <p>{this.props.children}</p>
+                <div className={"input-group mb-3"}>
+                    <input type="text" className={"form-control"} onChange={this.props.changed} value={this.props.name} />
+                    <div className={"input-group-append"}>
+                        <button className={"btn btn-danger"} type="button" onClick={this.props.click}>
+                            <i className={"fas fa-trash-alt"}/>
+                        </button>
+                    </div>
                 </div>
-            </div>     
-        </div>
-    ) 
-};
+            </div>
+        )
+    }
+}
 
-export default person;
+export default Person;

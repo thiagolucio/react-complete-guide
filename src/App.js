@@ -18,19 +18,24 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false
-  }
+  };
 
   static getDerivedStateFromProps(props, state) {
     console.log('[App.js] getDerivedStateFromProps', props);
     return state;
   }
 
-  componentWillMount() {
-    console.log('[App.js] componentWillMount');
-  }
-
   componentDidMount() {
     console.log('[App.js] componentDidMount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+
+  componentDidUpdate() {
+    console.log('[App.js] componentDidUpdate');
   }
 
   nameChangedHandler = (event, id) => {
@@ -51,19 +56,19 @@ class App extends Component {
     persons[personIndex] = person;
     this.setState( {persons: persons} );
 
-  }
+  };
 
   deletePersonHandler = (personIndex) => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons]; //criou constante criando um novo array persons com spread operator (...)
     persons.splice(personIndex, 1); // deu splice pra remover um elemento da repeticao do array
     this.setState({persons: persons}); // recriou o array com as alteracoes feitas
-  }
+  };
 
   togglePersonsHandler = (btnMsg) => {
     const doesShow = this.state.showPersons; //showPersons: false (linha 13)
     this.setState({showPersons: !doesShow}); //showPersons = true / doesShow = false    
-  }
+  };
 
   render () {
 
